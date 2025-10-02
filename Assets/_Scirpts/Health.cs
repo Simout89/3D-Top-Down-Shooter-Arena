@@ -20,6 +20,7 @@ namespace _Scirpts
         public void TakeDamage(float count)
         {
             currentHealthPoint -= count;
+            currentHealthPoint = Mathf.Max(0, currentHealthPoint);
             
             OnHealthChanged?.Invoke(currentHealthPoint);
 

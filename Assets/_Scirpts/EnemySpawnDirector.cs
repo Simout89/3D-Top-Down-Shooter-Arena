@@ -27,7 +27,7 @@ namespace _Scirpts
             while (true)
             {
                 SpawnRandomEnemy();
-                yield return new WaitForSeconds((float)(1 - 0.01 * _timer.CurrentTime));
+                yield return new WaitForSeconds(Mathf.Max(0.1f,(float)( 1 - 0.01 * _timer.CurrentTime)));
             }
         }
     }
