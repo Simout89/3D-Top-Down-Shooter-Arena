@@ -9,7 +9,8 @@ namespace _Scirpts
 
         private float currentHealthPoint;
 
-        public event Action OnDie; 
+        public event Action OnDie;
+        public event Action<float> OnHealthChanged; 
 
         private void Awake()
         {
@@ -19,6 +20,8 @@ namespace _Scirpts
         public void TakeDamage(float count)
         {
             currentHealthPoint -= count;
+            
+            OnHealthChanged?.Invoke(currentHealthPoint);
 
             if (currentHealthPoint <= 0)
             {
@@ -29,6 +32,8 @@ namespace _Scirpts
         private void Die()
         {
             OnDie?.Invoke();
+            
+            Destroy(gameObject);
         }
     }
 }

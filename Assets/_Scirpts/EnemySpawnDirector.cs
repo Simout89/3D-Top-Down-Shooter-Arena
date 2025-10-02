@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Scirpts
 {
-    public class EnemyManager: MonoBehaviour
+    public class EnemySpawnDirector: MonoBehaviour
     {
         [SerializeField] private Transform playerTransform;
         
@@ -20,5 +20,7 @@ namespace _Scirpts
         {
             InvokeRepeating("SpawnRandomEnemy", 0, 3);
         }
+        
+        
     }
 }
